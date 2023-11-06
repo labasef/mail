@@ -1,0 +1,11 @@
+# Python build and run stuff
+*/__pycache__/
+build/
+*.egg-info
+
+# IDE stuff
+venv
+.idea
+
+# env file
+.env
