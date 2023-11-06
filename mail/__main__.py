@@ -1,6 +1,6 @@
 import sys
 import argparse
-from mail.mail import send_mail
+from mail import send_mail
 
 # Declare argument parser
 parser = argparse.ArgumentParser(description="A simple interface to send emails")
