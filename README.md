@@ -3,6 +3,9 @@
 This project provides a simple wrapper function to the smtplib library to send emails.
 The code in this project can be used as a module, as a package or as an executable script.
 
+### Warning
+smtp authentication must be enabled
+
 ## send_mail
 
 The function send_mail takes the following arguments:
