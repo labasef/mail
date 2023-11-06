@@ -13,9 +13,9 @@ class SendMailException(Exception):
 
 
 def send_mail(subject: str, text: str,
-              files: List = None,
+              files: List[str] = None,
               *,
-              send_to: List = None,
+              send_to: List[str] = None,
               server: str = None,
               send_from: str = None,
               login_user: str = None,
@@ -24,7 +24,7 @@ def send_mail(subject: str, text: str,
     Email sending function.
     The parameters: send_to, server, send_from, login_user and login_pass will be read either from environment variables
      or keyword arguments; note that keyword arguments will override environment variable
-    :param subject: The subject of the email
+    :param subject: the subject of the email
     :param text: the body of the email
     :param send_to: the list of recipient email addresses; Associated environment variable is "MAIL_TO" as a single
     string with email separated by commas "," ex: "mail1@example.com,mail2@example.com"
@@ -46,7 +46,8 @@ def send_mail(subject: str, text: str,
         login_pass = login_pass or os.getenv("MAIL_PWD")
         assert login_pass is not None, "login_pass kwarg must be provided or environment variable MAIL_PWD must be set"
         send_to = send_to or os.getenv("MAIL_TO").split(',')
-        assert isinstance(send_to, list), ("send_to must be a list if passed as kwarg or a single string with email "
+        assert isinstance(send_to, list), ("send_to must be a list if passed as kwarg or a environmant variable as a "
+                                           "single string with email "
                                            "separated by commas if passed as an environment variable")
 
         msg = MIMEMultipart()
